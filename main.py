@@ -1,11 +1,16 @@
 from tkinter import *
+import morsecodetotext2
 FONT_NAME = "Courier"
+
+c = morsecodetotext2.texttomorsecode()
 
 
 def on_enter_button_click():
     txt = text_str.get(1.0, "end-1c")
     text_str.delete(1.0, "end")
-    print(txt)
+    txt = txt.lower()
+    ans = c.text_to_morse(txt)
+    print(ans)
 
 
 window = Tk()
